@@ -14,5 +14,6 @@
 #
 #     expect(page).to have_content(pet_2.name)
 #     expect(page).to have_content(pet_2.age)
+#     expect(page).to_not have_content(pet_3.age)
 #   end
 # end
