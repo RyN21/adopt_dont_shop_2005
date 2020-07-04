@@ -1,0 +1,18 @@
+<a href='/shelters'>Shelter Index</a>
+
+
+<h1><%= @shelter.name %>Pet List</h1>
+
+
+<% all = [] %>
+
+<% @pets.each do |pet| %>
+  <%= all << pet if pet.shelter_id == @shelter.id %>
+<% end %>
+
+<% all.each do |pet| %>
+  <h2><a href="/pets/<%= pet.id %>"><%= pet.name %></a></h2>
+  <img src=<%="#{pet.image}"%>>
+  <%= pet.age %>
+  <%= pet.sex %>
+<% end %>
