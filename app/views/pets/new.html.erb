@@ -1,0 +1,23 @@
+<a href='/shelters'>Shelter Index</a>
+
+<h1>Create a new Adoptable Pet</h1>
+
+<%= form_tag "/shelters/#{@shelter_id}/pets", method: :post do %>
+  <p><%= label_tag :Name %>
+  <%= text_field_tag :name %></p>
+
+  <p><%= label_tag :Description %>
+  <%= text_field_tag :description %></p>
+
+  <p><%= label_tag :Age %>
+  <%= text_field_tag :age %></p>
+
+  <p><%= label_tag :Sex %>
+  <%= text_field_tag :sex %></p>
+
+  <!<%= form_tag({:action => :create}, :multipart => true) do %>
+  <!<%= file_field_tag 'picture' %>
+  <!<% end %>
+
+  <%= submit_tag "Create Pet" %>
+<% end %>
