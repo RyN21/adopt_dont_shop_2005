@@ -12,8 +12,8 @@ RSpec.describe "Delete a Shelter" do
       click_on "Delete"
 
       expect(current_path).to eq('/shelters')
-      expect(page).to_not have_content('Adopt a Dog')
-      expect(page).to have_content('Adopt a Fish')
+      expect(page).to_not have_content(shelter_1.name)
+      expect(page).to have_content(shelter_2.name)
     end
   end
 end
