@@ -43,11 +43,8 @@ class PetsController < ApplicationController
     redirect_to "/pets"
   end
 
-  def upload
-
-  end
-
   private
+
   def pet_params
     params.permit(:image, :name, :age, :sex)
   end

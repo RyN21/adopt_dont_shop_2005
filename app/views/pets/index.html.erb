@@ -1,4 +1,5 @@
-<a href='/shelters'>Shelter Index</a>
+<p><%= link_to "Shelter Index", "/shelters" %></p>
+<p><%= link_to "Pet Index", "/pets" %></p>
 
 <h1>Pets List</h1>
 
@@ -7,4 +8,7 @@
   <img src=<%="#{pet.image}"%>>
   <%= pet.age %>
   <%= pet.sex %>
+
+  <p><%=  link_to "Edit #{pet.name}", "/pets/#{pet.id}/edit" %></p>
+  <p><%= button_to "Delete #{pet.name}", "/pets/#{pet.id}", method: :delete %></p>
 <% end %>

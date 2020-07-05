@@ -1,13 +1,17 @@
-<a href='/shelters'>Shelter Index</a>
+<p><%= link_to "Shelter Index", "/shelters" %></p>
+<p><%= link_to "Pet Index", "/pets" %></p>
 
 
-<h1><%= @shelter.name %>Pet List</h1>
+<h1>"<%= @shelter.name %>" Pet List</h1>
 
 <% @all.each do |pet| %>
   <h2><a href="/pets/<%= pet.id %>"><%= pet.name %></a></h2>
   <img src=<%="#{pet.image}"%>>
   <p>Age: <%= pet.age %></p>
   <p>Sex: <%= pet.sex %></p>
+
+  <p><%=  link_to "Edit #{pet.name}", "/shelters/#{@shelter.id}/pets/#{pet.id}/edit" %></p>
+  <p><%= button_to "Delete #{pet.name}", "/shelters/#{@shelter.id}/pets/#{pet.id}", method: :delete %></p>
 <% end %>
 
 <%= link_to "Create Pet", "/shelters/#{@shelter.id}/pets/new" %>
