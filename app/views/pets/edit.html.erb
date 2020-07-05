@@ -1,20 +1,27 @@
-<p><%= link_to "Shelter Index", "/shelters" %></p>
-<p><%= link_to "Pet Index", "/pets" %></p>
+<!DOCTYPE html>
+<html>
+  <body style="background-color:IndianRed;">
+
+    <p><%= link_to "Shelter Index", "/shelters" %></p>
+    <p><%= link_to "Pet Index", "/pets" %></p>
+    
+    <h1><%="Adopt don't Shop"%></h1>
 
 <h1>Update Pet</h1>
 
-<%= form_tag "/pets/#{@pet.id}", method: :patch do %>
-  <p><%= label_tag :Name %>
-  <%= text_field_tag :name %></p>
+<%= form_tag "/pets/#{@pet.id}", {:action => :upload, :multipart => true} do %>
+  <p><%= label_tag :Name %></p>
+  <p><%= text_field_tag :name %></p>
 
-  <p><%= label_tag :Description %>
-  <%= text_field_tag :description %></p>
+  <p><%= label_tag :Description %></p>
+  <p><%= text_field_tag :description %></p>
 
-  <p><%= label_tag :Age %>
-  <%= text_field_tag :age %></p>
+  <p><%= label_tag :Age %></p>
+  <p><%= text_field_tag :age %></p>
 
-  <p><%= label_tag :Sex %>
-  <%= text_field_tag :sex %></p>
+  <p><%= label_tag :Sex %></p>
+  <p><%= text_field_tag :sex %></p>
 
+  <%= file_field_tag "Upload Image" %>
   <%= submit_tag "Update Pet" %>
 <% end %>

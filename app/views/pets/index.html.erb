@@ -1,14 +1,22 @@
-<p><%= link_to "Shelter Index", "/shelters" %></p>
-<p><%= link_to "Pet Index", "/pets" %></p>
+<!DOCTYPE html>
+<html>
+  <body style="background-color:IndianRed;">
 
-<h1>Pets List</h1>
+    <p><%= link_to "Shelter Index", "/shelters" %></p>
+    <p><%= link_to "Pet Index", "/pets" %></p>
+
+    <h1><%="Adopt don't Shop"%></h1>
+
+<h2>Pets List</h2>
 
 <% @pets.each do |pet| %>
-  <h2><a href="/pets/<%= pet.id %>"><%= pet.name %></a></h2>
+  <h3><a href="/pets/<%= pet.id %>"><%= pet.name %></a></h3>
+  <p><%= pet.image %></p>
   <img src=<%="#{pet.image}"%>>
-  <%= pet.age %>
-  <%= pet.sex %>
+  <p>Age: <%= pet.age %>
+  <%= pet.sex %></p>
 
   <p><%=  link_to "Edit #{pet.name}", "/pets/#{pet.id}/edit" %></p>
   <p><%= button_to "Delete #{pet.name}", "/pets/#{pet.id}", method: :delete %></p>
 <% end %>
+</body>

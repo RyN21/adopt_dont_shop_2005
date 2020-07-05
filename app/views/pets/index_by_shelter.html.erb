@@ -1,11 +1,16 @@
-<p><%= link_to "Shelter Index", "/shelters" %></p>
-<p><%= link_to "Pet Index", "/pets" %></p>
+<!DOCTYPE html>
+<html>
+  <body style="background-color:IndianRed;">
 
+    <p><%= link_to "Shelter Index", "/shelters" %></p>
+    <p><%= link_to "Pet Index", "/pets" %></p>
 
-<h1>"<%= @shelter.name %>" Pet List</h1>
+    <h1><%="Adopt don't Shop"%></h1>
+
+<h2>"<%= @shelter.name %>" Pet List</h2>
 
 <% @all.each do |pet| %>
-  <h2><a href="/pets/<%= pet.id %>"><%= pet.name %></a></h2>
+  <h3><a href="/pets/<%= pet.id %>"><%= pet.name %></a></h3>
   <img src=<%="#{pet.image}"%>>
   <p>Age: <%= pet.age %></p>
   <p>Sex: <%= pet.sex %></p>

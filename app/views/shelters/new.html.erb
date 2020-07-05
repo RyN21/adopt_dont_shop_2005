@@ -1,9 +1,15 @@
-<p><%= link_to "Shelter Index", "/shelters" %></p>
-<p><%= link_to "Pet Index", "/pets" %></p>
+<!DOCTYPE html>
+<html>
+  <body style="background-color:IndianRed;">
+
+    <p><%= link_to "Shelter Index", "/shelters" %></p>
+    <p><%= link_to "Pet Index", "/pets" %></p>
+
+    <h1><%="Adopt don't Shop"%></h1>
 
 <h1>Create a New Shelter</h1>
 
-<%= form_tag "/shelters" do %>
+<%= form_tag("/shelters") do %>
   <p><%= label_tag :name %></p>
   <p><%= text_field_tag :name %></p>
   <p><%= label_tag :address %></p>
@@ -14,5 +20,7 @@
   <p><%= text_field_tag :state %></p>
   <p><%= label_tag :zip %></p>
   <p><%= text_field_tag :zip %></p>
+
   <%= submit_tag "Create Shelter "%>
 <% end %>
+</body>

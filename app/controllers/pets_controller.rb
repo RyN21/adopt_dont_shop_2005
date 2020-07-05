@@ -2,7 +2,7 @@ class PetsController < ApplicationController
   def index
     @pets = Pet.all
   end
-  #
+
   def index_by_shelter
     @shelter = Shelter.find(params[:shelter_id])
     @pets = Pet.all
@@ -23,8 +23,9 @@ class PetsController < ApplicationController
   end
 
   def create
+    require "pry"; binding.pry
     shelter = Shelter.find(params[:shelter_id])
-    new_pet = shelter.pets.create(pet_params)
+    shelter.pets.create(pet_params)
     redirect_to("/shelters/#{shelter.id}/pets")
   end
 
@@ -46,6 +47,6 @@ class PetsController < ApplicationController
   private
 
   def pet_params
-    params.permit(:image, :name, :age, :sex)
+    params.permit(:image, :name, :age, :sex, :shelter_id)
   end
 end
